@@ -9,9 +9,9 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
-import { ParseIntPipe } from 'src/common/parse-int/parse-int.pipe';
-import { CreateUserDto, UpdateUserDto } from 'src/dtos/user.dtos';
-import { UsersService } from 'src/services/users.service';
+import { ParseIntPipe } from 'src/common/parse-int.pipe';
+import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos';
+import { UsersService } from '../services/users.service';
 
 @Controller('users')
 export class UsersController {
