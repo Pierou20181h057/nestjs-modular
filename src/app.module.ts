@@ -9,12 +9,18 @@ import { DatabaseModule } from './database/database.module';
 import { enviroments } from './enviroments';
 import config from './config';
 
+import * as Joi from 'joi';
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: enviroments[process.env.NODE_ENV] || '.env',
       load: [config],
       isGlobal: true,
+      validationSchema: Joi.object({
+        API_KEY: Joi.number().required(),
+        DATABASE_NAME: Joi.string().required(),
+        DATABASE_PORT: Joi.number().required(),
+      }),
     }),
     HttpModule,
     UsersModule,
